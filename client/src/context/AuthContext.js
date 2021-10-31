@@ -3,7 +3,7 @@ import AuthReducer from "./AuthReducer";
 
 const INITIAL_STATE = {
 	user: JSON.parse(localStorage.getItem("user")) || null,
-	// user: null,
+
 	isFetching: false,
 	error: false,
 };

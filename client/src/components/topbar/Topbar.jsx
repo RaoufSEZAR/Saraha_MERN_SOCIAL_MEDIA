@@ -25,7 +25,10 @@ export default function Topbar() {
 			</div>
 			<div className="topbarRight">
 				<div className="topbarLinks">
-					<span className="topbarLink">Homepage</span>
+					{/* <span className="topbarLink">Homepage</span> */}
+					<Link to="/" style={{ textDecoration: "none", color: "white" }}>
+						<span className="topbarLink">Homepage</span>
+					</Link>
 					<span className="topbarLink">Timeline</span>
 				</div>
 				<div className="topbarIcons">
@@ -34,7 +37,9 @@ export default function Topbar() {
 						<span className="topbarIconBadge">1</span>
 					</div>
 					<div className="topbarIconItem">
-						<Chat />
+						<Link to="/messenger" style={{ color: "white" }}>
+							<Chat />
+						</Link>
 						<span className="topbarIconBadge">2</span>
 					</div>
 					<div className="topbarIconItem">
