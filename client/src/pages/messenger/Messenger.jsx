@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
 import "./messenger.css";
 import Topbar from "./../../components/topbar/Topbar";
 import Conversation from "./../../components/conversation/Conversation";
@@ -15,6 +15,7 @@ export default function Messenger() {
 	const [messages, setMessages] = useState([]);
 	const [newMessages, setNewMessages] = useState("");
 	const { user } = useContext(AuthContext);
+	const scrollRef = useRef();
 
 	useEffect(() => {
 		const getConversation = async () => {
@@ -56,6 +57,10 @@ export default function Messenger() {
 			console.log(error);
 		}
 	};
+
+	useEffect(() => {
+		scrollRef.current?.scrollIntoView({ behavior: "smooth" });
+	}, [messages]);
 	return (
 		<>
 			<Topbar />
@@ -84,11 +89,13 @@ export default function Messenger() {
 							<>
 								<div className="chatBoxTop">
 									{messages.map((m) => (
-										<Message
-											key={m._id}
-											message={m}
-											own={m.sender === user._id}
-										/>
+										<div className="" ref={scrollRef}>
+											<Message
+												key={m._id}
+												message={m}
+												own={m.sender === user._id}
+											/>
+										</div>
 									))}
 								</div>
 								<div className="chatBoxBottom">
