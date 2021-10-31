@@ -20,6 +20,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	position: relative;
 }
 .chatBoxTop {
 	overflow-y: scroll;
@@ -59,4 +60,12 @@
 .chatOnlineWrapper {
 	height: 100%;
 	padding: 10px;
+}
+
+.noConversationText {
+	position: absolute;
+	top: 10%;
+	font-size: 50px;
+	color: rgb(224, 220, 220);
+	cursor: default;
 }
